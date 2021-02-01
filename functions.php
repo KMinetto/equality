@@ -25,13 +25,13 @@ function equality_supports() {
 		'label' => __('Ecart de salaire', 'Post Type General Name'),
 		'description' => __('Tous les articles'),
 		'labels' => $labelEcarts,
-		'menu_icon' => 'dashicons-superhero',
+		'menu_icon' => 'dashicons-money',
 		'supports' => array(
 			'title',
 			'editor',
 			'excerpt',
 			'author',
-			'thumbnails',
+			'thumbnail',
 			'comments',
 			'revisions',
 			'custom-fields',
@@ -44,8 +44,8 @@ function equality_supports() {
 	);
 
 	$labelAccess = array(
-		'name' => _x('Ecart de salaire', 'Post Type General Name'),
-		'menu_name' => _('Ecart de salaire'),
+		'name' => _x('Accès des femmes', 'Post Type General Name'),
+		'menu_name' => _('Accès des femmes'),
 		'all_items' => _('Tous les articles'),
 		'view_item' => _('Voir les articles'),
 		'add_new_item' => _('Ajouter un nouvel article'),
@@ -58,16 +58,16 @@ function equality_supports() {
 	);
 
 	$argsAccess = array(
-		'label' => __('Accès aux femme aux postes à resonsabilités', 'Post Type General Name'),
+		'label' => __('Accès des femmes aux postes à resonsabilités', 'Post Type General Name'),
 		'description' => __('Tous les articles'),
 		'labels' => $labelAccess,
-		'menu_icon' => 'dashicons-superhero',
+		'menu_icon' => 'dashicons-businesswoman',
 		'supports' => array(
 			'title',
 			'editor',
 			'excerpt',
 			'author',
-			'thumbnails',
+			'thumbnail',
 			'comments',
 			'revisions',
 			'custom-fields',
@@ -108,18 +108,9 @@ function equality_register_assets() {
 	wp_enqueue_style('style');
 }
 
-/**
- * Séparateur pour le titre de la page
- * @return string
- */
-function equality_title_separator(): string {
-	return '|';
-}
-
 /* actions */
 add_action('after_setup_theme', 'equality_supports');
 add_action('get_header', 'remove_admin_login_header');
 add_action('wp_enqueue_scripts', 'equality_register_assets');
 
 /* filters */
-add_filter('document_title_separator', 'equality_title_separator');
