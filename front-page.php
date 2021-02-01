@@ -1,48 +1,65 @@
 <?php
 get_header();
 //?>
-	<main>
-<!--		--><?php
-//		if (have_posts()) :
-//			while (have_posts()) : the_post(); ?>
-<!--				<div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">-->
-<!---->
-<!--				 Article -->
-<!--					<article class="overflow-hidden rounded-lg shadow-lg">-->
-<!---->
-<!--						<a href="#">-->
-<!--							<img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">-->
-<!--						</a>-->
-<!---->
-<!--						<header class="flex items-center justify-between leading-tight p-2 md:p-4">-->
-<!--							<h1 class="text-lg">-->
-<!--								<a class="no-underline text-black font-serif" href="#">-->
-<!--									--><?php //the_title(); ?>
-<!--								</a>-->
-<!--							</h1>-->
-<!--							<p class="text-grey-darker text-sm">-->
-<!--								14/4/19-->
-<!--							</p>-->
-<!--						</header>-->
-<!--						<ul class="flex items-center justify-between leading-tight p-2 md:p-4">-->
-<!--							<li>--><?php //the_category(); ?><!--</li>-->
-<!--						</ul>-->
-<!--						<div class="flex items-center justify-between leading-tight p-2 md:p-4">-->
-<!--							<p>--><?php //the_content() ?><!--</p>-->
-<!--						</div>-->
-<!--						<footer class="flex items-center justify-between leading-none p-2 md:p-4">-->
-<!--							<a class="flex items-center no-underline text-black" href="#">-->
-<!--								<img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">-->
-<!--								<p class="ml-2 text-sm">-->
-<!--									Author Name-->
-<!--								</p>-->
-<!--						</footer>-->
-<!---->
-<!--					</article>-->
-<!--				 END Article -->
-<!---->
-<!--				</div>-->
-<!--			--><?php //endwhile; endif; ?>
-	</main>
+	<main class="container">
+    <?php
+		if (have_posts()) :
+			while (have_posts()) : the_post(); ?>
+                <h1 class="text-center"><?php the_title(); ?></h1>
+            <div class="intro">
+                <?php the_content() ?>
+            </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
+
+        <?php $args = array(
+          'post_types' => 'ecarts',
+          'posts_per_page' => 3,
+          'order' => 'ASC'
+        );
+        $myQuery = new WP_Query($args);
+        ?>
+
+        <h2>Les écarts de salaires entre les hommes et les femmes</h2>
+        <div class="row">
+            <?php if ($myQuery->have_posts()) : ?>
+                <?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
+                    <div class="col-12 col-md-4 ecarts">
+                        <a href="ecarts/<?php the_permalink(); ?>">
+                            <img src="<?= get_the_post_thumbnail_url() ?>" alt="Image de l'article">
+                            <h3><?php the_title() ?></h3>
+                        </a>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+        </div>
+        <a href="ecarts">Découvrire les articles...</a>
+
+		<?php $args = array(
+			'post_types' => 'access',
+			'posts_per_page' => 3,
+			'order' => 'ASC'
+		);
+		$myQuery = new WP_Query($args);
+		?>
+
+        <h2>L'accès des femmes aux postes à résponsabilités</h2>
+        <div class="row">
+			<?php if ($myQuery->have_posts()) : ?>
+				<?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
+                    <div class="col-12 col-md-4 ecarts">
+                        <a href="<?php the_permalink(); ?>">
+                            <img src="<?= get_the_post_thumbnail_url() ?>" alt="Image de l'article">
+                            <h3><?php the_title() ?></h3>
+                        </a>
+                    </div>
+				<?php endwhile; ?>
+			<?php endif; ?>
+			<?php wp_reset_postdata(); ?>
+        </div>
+        <a href="access">Découvrire les articles...</a>
+    </main>
 <?php
 get_footer();

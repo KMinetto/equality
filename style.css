@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine&family=Roboto:wght@100&display=swap');
 
 body {
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 header {
@@ -31,7 +31,7 @@ a:before {
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #000;
+    background-color: #fff;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -56,12 +56,28 @@ button:focus {
     outline: none;
 }
 
+.bg-blue {
+    background-color: #318CE7;
+}
+
+.header {
+    height: 150px;
+}
+
 .link {
-    color: #000;
+    color: #fff;
+}
+
+.nav-expanded {
+    background-color: #EE5998;
 }
 
 .link:hover {
     color: #000;
+}
+
+.thumb-single {
+    margin-left: 10%;
 }
 
 #logoLink:hover:before {
@@ -73,7 +89,6 @@ button:focus {
 @media screen and (max-width: 768px) {
     a:before {
         width: 80%;
-        left: 10%;
     }
 }
 
