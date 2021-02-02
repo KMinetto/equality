@@ -8,7 +8,7 @@
 			<?php while (have_posts()) : the_post(); ?>
 				<div class="col-12">
                     <h1 class="text-center"><?php the_title(); ?></h1>
-                    <p>
+                    <p class="col-12">
                         <img class="thumb-single" src="<?php the_post_thumbnail_url(); ?>" alt="Image lié à l'article">
                     </p>
                 </div>
