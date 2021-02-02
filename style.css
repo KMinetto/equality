@@ -20,6 +20,11 @@ nav img {
     width: 70px;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 a {
     position: relative;
 }
@@ -76,8 +81,14 @@ button:focus {
     color: #000;
 }
 
-.thumb-single {
-    margin-left: 10%;
+.thumbnail-cards {
+    width: 250px;
+    height: auto;
+    padding: 0;
+}
+
+.thumbnail-cards img {
+    height: 100%;
 }
 
 #logoLink:hover:before {

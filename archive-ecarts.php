@@ -24,7 +24,7 @@
                             <p class="card-text mb-auto"><?php the_excerpt(); ?></p>
                             <a class="stretched-link" href="<?php the_permalink(); ?>">Voir l'article</a>
                         </div>
-                        <div class="col-auto d-none d-lg-block">
+                        <div class="col-auto d-none d-lg-block thumbnail-cards">
                             <img width="250" height="250" src="<?php the_post_thumbnail_url(); ?>" alt="Image liée à l'article">
                         </div>
                     </div>
