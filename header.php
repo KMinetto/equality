@@ -6,7 +6,15 @@
 	          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="<?php bloginfo('template_url');?>/style.css">
-        <title><?php the_title() ?></title>
+        <title>
+            <?php
+                if (is_front_page()) {
+                    echo 'Accueil';
+                } else {
+                    echo the_title();
+                }
+            ?>
+        </title>
         <?php wp_head(); ?>
 	</head>
 	<body>
