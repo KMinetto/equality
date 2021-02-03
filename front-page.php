@@ -1,7 +1,7 @@
 <?php
 get_header();
 //?>
-	<main class="container">
+	<main>
     <?php
 		if (have_posts()) :
 			while (have_posts()) : the_post(); ?>
@@ -13,8 +13,12 @@ get_header();
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 
+        <div class="col-12 my-5">
+            <img class="thumb-single" src="<?= bloginfo( 'template_url' ) ?>/assets/img/ecarts.jpg" alt="Image d'un ecart salarial">
+        </div>
+
         <?php $args = array(
-          'post_types' => 'ecarts',
+          'post_type' => 'ecarts',
           'posts_per_page' => 3,
           'order' => 'ASC'
         );
@@ -22,23 +26,34 @@ get_header();
         ?>
 
         <h2>Les écarts de salaires entre les hommes et les femmes</h2>
-        <div class="row">
+        <h4 class="mt-4">
+            En temps plein, les femmes touchent 16,8 % de moins que les hommes. Plus on s’élève sur l’échelle des
+            salaires, plus les écarts entre femmes et hommes sont grands.
+        </h4>
+        <div class="row mt-3 d-flex justify-content-between">
+
             <?php if ($myQuery->have_posts()) : ?>
                 <?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
-                    <div class="col-12 col-md-4 ecarts">
-                        <a href="ecarts/<?php the_permalink(); ?>">
-                            <img src="<?= get_the_post_thumbnail_url() ?>" alt="Image de l'article">
-                            <h3><?php the_title() ?></h3>
-                        </a>
+                <div class="card col-4">
+                    <img class="card-img-top" src="<?php the_post_thumbnail_url() ?>" alt="Image de l'article">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php the_title() ?></h5>
+                        <p class="card-text"><?php the_excerpt(); ?></p>
+                        <a href="<?php the_permalink(); ?>" class="btn bg-blue text-white">Voir l'article</a>
                     </div>
+                </div>
                 <?php endwhile; ?>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
         </div>
-        <a href="ecarts">Découvrire les articles...</a>
+        <a href="ecarts">Découvrir les articles...</a>
+
+        <div class="col-12 my-5">
+            <img src="<?= bloginfo( 'template_url' ) ?>/assets/img/access.png" alt="Image parlant du plafond de verre" class="thumb-single">
+        </div>
 
 		<?php $args = array(
-			'post_types' => 'access',
+			'post_type' => 'access',
 			'posts_per_page' => 3,
 			'order' => 'ASC'
 		);
@@ -46,20 +61,22 @@ get_header();
 		?>
 
         <h2>L'accès des femmes aux postes à résponsabilités</h2>
-        <div class="row">
+        <div class="row mt-3">
 			<?php if ($myQuery->have_posts()) : ?>
 				<?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
-                    <div class="col-12 col-md-4 ecarts">
-                        <a href="<?php the_permalink(); ?>">
-                            <img src="<?= get_the_post_thumbnail_url() ?>" alt="Image de l'article">
-                            <h3><?php the_title() ?></h3>
-                        </a>
+                    <div class="card mx-auto">
+                        <img class="card-img-top thumb-single" src="<?php the_post_thumbnail_url() ?>" alt="Image de l'article">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php the_title() ?></h5>
+                            <p class="card-text"><?php the_excerpt(); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="btn bg-pink text-white">Voir l'article</a>
+                        </div>
                     </div>
 				<?php endwhile; ?>
 			<?php endif; ?>
 			<?php wp_reset_postdata(); ?>
         </div>
-        <a href="access">Découvrire les articles...</a>
+        <a class="text-end" href="access">Découvrir les articles...</a>
     </main>
 <?php
 get_footer();
