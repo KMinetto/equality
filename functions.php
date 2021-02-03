@@ -41,6 +41,8 @@ function equality_supports() {
 		'public' => true,
 		'has_archive' => true,
 		'rewrite' => array('slug' => 'ecarts'),
+		'show_in_nav_menus' => true,
+		'menu_position' => 9
 	);
 
 	$labelAccess = array(
@@ -77,6 +79,8 @@ function equality_supports() {
 		'public' => true,
 		'has_archive' => true,
 		'rewrite' => array('slug' => 'access'),
+		'show_in_nav_menus' => true,
+		'menu_position' => 8
 	);
 
 	register_post_type('ecarts', $argsEcarts);
@@ -108,9 +112,23 @@ function equality_register_assets() {
 	wp_enqueue_style('style');
 }
 
+function myTheme_menu_class($classes){
+	$classes[] = 'nav-item';
+	return $classes;
+}
+
+function myTheme_menu_link_class($attrs){
+	$attrs['class'] = 'nav-link';
+	return $attrs;
+}
+
 /* actions */
 add_action('after_setup_theme', 'equality_supports');
 add_action('get_header', 'remove_admin_login_header');
 add_action('wp_enqueue_scripts', 'equality_register_assets');
 
 /* filters */
+//add_filter('wp_title', 'myTheme_title');
+//add_filter('document_title_separator', 'myTheme_title_separator');
+add_filter('nav_menu_css_class', 'myTheme_menu_class');
+add_filter('nav_menu_link_attributes', 'myTheme_menu_link_class');

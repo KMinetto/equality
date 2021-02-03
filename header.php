@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -21,57 +18,21 @@
         <?php wp_head(); ?>
 	</head>
 	<body>
-    <!-- Header -->
-       <div class="container header">
-           <div class="row">
-               <header class="col-12 bg-transparent">
-                   <nav class="navbar navbar-expand-md navbar-light bg-transparent d-flex h-100">
-                       <div class="container-fluid">
-                           <?php if (is_single()) : ?>
-                               <a id="logoLink" class="navbar-brand" href="../../">
-                                   <img class="mt-2" src="<?php bloginfo('template_url') ?>/assets/img/logo/Logo.svg" alt="Logo">
-                               </a>
-                           <?php elseif (is_archive()) : ?>
-                               <a id="logoLink" class="navbar-brand" href="../">
-                                   <img class="mt-2" src="<?php bloginfo('template_url') ?>/assets/img/logo/Logo.svg" alt="Logo">
-                               </a>
-                           <?php else : ?>
-                               <a id="logoLink" class="navbar-brand" href="#">
-                                   <img class="mt-2" src="<?php bloginfo('template_url') ?>/assets/img/logo/Logo.svg" alt="Logo">
-                               </a>
-                           <?php endif; ?>
-                           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                               <span class="navbar-toggler-icon"></span>
-                           </button>
+       <nav class="navbar navbar-expand-lg navbar-light">
+           <div class="container-fluid">
+               <a class="navbar-brand col-2" href="<?= get_home_url() ?>">
+                   <img src="<?php bloginfo('template_url'); ?>/assets/img/logo/Logo.svg" alt="Logo">
+               </a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
 
-                           <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-                               <ul class="navbar-nav mb-2 mb-md-0 nav-expanded">
-                                   <?php if (is_single()) : ?>
-                                       <li class="nav-item text-end text-md-start active">
-                                           <a class="nav-link text-sm-end link text-white" aria-current="page" href="../../ecarts">Ecart des salaires hommes/femmes</a>
-                                       </li>
-                                       <li class="nav-item text-end text-md-start">
-                                           <a class="nav-link text-sm-end link text-white" href="../../access">Accès des femmes aux postes à responsabilités</a>
-                                       </li>
-                                   <?php elseif (is_archive()) : ?>
-                                       <li class="nav-item text-end text-md-start active">
-                                           <a class="nav-link text-sm-end link text-white" aria-current="page" href="../ecarts">Ecart des salaires hommes/femmes</a>
-                                       </li>
-                                       <li class="nav-item text-end text-md-start">
-                                           <a class="nav-link text-sm-end link text-white" href="../access">Accès des femmes aux postes à responsabilités</a>
-                                       </li>
-                                   <?php else : ?>
-                                       <li class="nav-item text-end text-md-start active">
-                                           <a class="nav-link text-sm-end link text-white" aria-current="page" href="ecarts">Ecart des salaires hommes/femmes</a>
-                                       </li>
-                                       <li class="nav-item text-end text-md-start">
-                                           <a class="nav-link text-sm-end link text-white" href="access">Accès des femmes aux postes à responsabilités</a>
-                                       </li>
-                                   <?php endif; ?>
-                               </ul>
-                           </div>
-                       </div>
-                   </nav>
-               </header>
+               <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+                   <?php wp_nav_menu([
+                       'theme_location' => 'header', 'container' => false,
+                       'menu_class' => 'navbar-nav',
+                   ]) ?>
+               </div>
            </div>
-       </div>
+       </nav>
+    <div class="container">
