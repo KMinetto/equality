@@ -23,7 +23,7 @@ get_header();
 					<div class="row g-0 border rounded overflow-hidden d-flex flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 						<div class="col p-4 d-flex flex-column position-relative text-black">
 							<strong class="d-inline-block mb-2 text-primary"><?php the_category(); ?></strong>
-							<h3 class="mb-0"><?php the_title(); ?></h3>
+							<h4 class="mb-0"><?php the_title(); ?></h4>
 							<div class="mb-1 text-muted"><?php the_date(); ?></div>
 							<p class="card-text mb-auto"><?php the_excerpt(); ?></p>
 							<a class="stretched-link" href="<?php the_permalink(); ?>">Voir l'article</a>
