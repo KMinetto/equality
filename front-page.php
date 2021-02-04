@@ -25,16 +25,16 @@ get_header();
         $myQuery = new WP_Query($args);
         ?>
 
-        <h2>Les écarts de salaires entre les hommes et les femmes</h2>
-        <h4 class="mt-4">
+        <h2 class="text-center">Les écarts de salaires entre les hommes et les femmes</h2>
+        <h4 class="mt-4 text-center">
             En temps plein, les femmes touchent 16,8 % de moins que les hommes. Plus on s’élève sur l’échelle des
             salaires, plus les écarts entre femmes et hommes sont grands.
         </h4>
-        <div class="row mt-3 d-flex justify-content-between">
+        <div class="row mt-3 d-lg-flex justify-content-lg-between">
 
             <?php if ($myQuery->have_posts()) : ?>
                 <?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
-                <div class="card col-4">
+                <div class="card p-0 col-12 col-lg-4 mt-5">
                     <img class="card-img-top" src="<?php the_post_thumbnail_url() ?>" alt="Image de l'article">
                     <div class="card-body">
                         <h5 class="card-title"><?php the_title() ?></h5>
@@ -60,11 +60,11 @@ get_header();
 		$myQuery = new WP_Query($args);
 		?>
 
-        <h2>L'accès des femmes aux postes à résponsabilités</h2>
+        <h2 class="text-center">L'accès des femmes aux postes à résponsabilités</h2>
         <div class="row mt-3">
 			<?php if ($myQuery->have_posts()) : ?>
 				<?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
-                    <div class="card mx-auto">
+                    <div class="card p-0 col-12 col-lg-4 mt-5">
                         <img class="card-img-top thumb-single" src="<?php the_post_thumbnail_url() ?>" alt="Image de l'article">
                         <div class="card-body">
                             <h5 class="card-title"><?php the_title() ?></h5>
