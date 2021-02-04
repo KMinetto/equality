@@ -22,14 +22,12 @@
 			<?php while (have_posts()) : the_post(); ?>
                 <div class="col-12 col-md-6">
                     <div class="row g-0 border rounded overflow-hidden d-flex flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-relative text-black">
-                            <strong class="d-inline-block mb-2 text-primary"><?php the_category(); ?></strong>
+                        <div class="col p-4 d-flex flex-column justify-content-between position-relative text-black">
                             <h4 class="mb-0"><?php the_title(); ?></h4>
-                            <div class="mb-1 text-muted"><?php the_date(); ?></div>
                             <a class="stretched-link" href="<?php the_permalink(); ?>">Voir l'article</a>
                         </div>
                         <div class="col-auto d-none d-lg-block thumbnail-cards">
-                            <img width="250" src="<?php the_post_thumbnail_url(); ?>" alt="Image liée à l'article">
+                            <img height="250" src="<?php the_post_thumbnail_url(); ?>" alt="Image liée à l'article">
                         </div>
                     </div>
                 </div>

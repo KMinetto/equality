@@ -36,7 +36,7 @@ get_header();
                 <?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
                 <div class="card p-0 col-12 col-lg-4 mt-5">
                     <img class="card-img-top" src="<?php the_post_thumbnail_url() ?>" alt="Image de l'article">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-between">
                         <h5 class="card-title"><?php the_title() ?></h5>
                         <p class="card-text"><?php the_excerpt(); ?></p>
                         <a href="<?php the_permalink(); ?>" class="btn bg-blue text-white">Voir l'article</a>
@@ -66,7 +66,7 @@ get_header();
 				<?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
                     <div class="card p-0 col-12 col-lg-4 mt-5">
                         <img class="card-img-top thumb-single" src="<?php the_post_thumbnail_url() ?>" alt="Image de l'article">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title"><?php the_title() ?></h5>
                             <p class="card-text"><?php the_excerpt(); ?></p>
                             <a href="<?php the_permalink(); ?>" class="btn bg-pink text-white">Voir l'article</a>
