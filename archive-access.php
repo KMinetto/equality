@@ -22,7 +22,7 @@ get_header();
 			<?php while (have_posts()) : the_post(); ?>
 				<div class="col-12 col-md-6">
 					<div class="row g-0 border rounded overflow-hidden d-flex flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-						<div class="col p-4 d-flex flex-column justify-content-betwwen position-relative text-black">
+						<div class="col d-flex flex-column justify-content-between position-relative text-black">
 							<h4 class="mb-0"><?php the_title(); ?></h4>
 							<a class="stretched-link" href="<?php the_permalink(); ?>">Voir l'article</a>
 						</div>
