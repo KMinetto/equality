@@ -31,7 +31,6 @@ get_header();
             salaires, plus les écarts entre femmes et hommes sont grands.
         </h4>
         <div class="row mt-3 d-lg-flex justify-content-lg-between">
-
             <?php if ($myQuery->have_posts()) : ?>
                 <?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
                 <div class="card p-0 col-12 col-lg-4 mt-5">
@@ -61,7 +60,7 @@ get_header();
 		?>
 
         <h2 class="text-center">L'accès des femmes aux postes à résponsabilités</h2>
-        <div class="row mt-3">
+        <div class="row mt-3 d-flex justify-content-between">
 			<?php if ($myQuery->have_posts()) : ?>
 				<?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
                     <div class="card p-0 col-12 col-lg-4 mt-5">
