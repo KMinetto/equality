@@ -83,13 +83,49 @@ function equality_supports() {
 		'menu_position' => 8
 	);
 
+	$labelMentions = array(
+		'name' => _x('Mentions légales', 'Post Type General Name'),
+		'menu_name' => _('Mentions légales'),
+		'all_items' => _('Tous les articles'),
+		'view_item' => _('Voir les articles'),
+		'add_new_item' => _('Ajouter un nouvel article'),
+		'add_new' => _('Ajouter'),
+		'edit_item' => _('Editer un article'),
+		'update_item' => _('Modifier un article'),
+		'search_item' => _('Rechercher un article'),
+		'not_found' => _('Non trouvé'),
+		'not_found_in_trash' => _('Non trouvé dans la corbeille')
+	);
+
+	$argsMentions = array(
+		'label' => __('Mentions légales', 'Post Type General Name'),
+		'description' => __('Mentions légales'),
+		'labels' => $labelMentions,
+		'menu_icon' => 'dashicons-media-text',
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'author',
+			'thumbnail',
+			'comments',
+			'revisions',
+			'custom-fields',
+		),
+		'show_in_rest' => true,
+		'hierarchical' => false,
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'mentions'),
+		'show_in_nav_menus' => true,
+		'menu_position' => 7
+	);
+
 	register_post_type('ecarts', $argsEcarts);
 	register_post_type('access', $argsAccess);
+	register_post_type('mentions', $argsMentions);
 }
 
-/**
- * Supprime le margin-top sur la balise html
- */
 function remove_admin_login_header() {
 	remove_action('wp_head', '_admin_bar_bump_cb');
 }
@@ -112,12 +148,12 @@ function equality_register_assets() {
 	wp_enqueue_style('style');
 }
 
-function myTheme_menu_class($classes){
+function equality_menu_class($classes){
 	$classes[] = 'nav-item';
 	return $classes;
 }
 
-function myTheme_menu_link_class($attrs){
+function equality_menu_link_class($attrs){
 	$attrs['class'] = 'nav-link';
 	return $attrs;
 }
@@ -130,5 +166,5 @@ add_action('wp_enqueue_scripts', 'equality_register_assets');
 /* filters */
 //add_filter('wp_title', 'myTheme_title');
 //add_filter('document_title_separator', 'myTheme_title_separator');
-add_filter('nav_menu_css_class', 'myTheme_menu_class');
-add_filter('nav_menu_link_attributes', 'myTheme_menu_link_class');
+add_filter('nav_menu_css_class', 'equality_menu_class');
+add_filter('nav_menu_link_attributes', 'equality_menu_link_class');

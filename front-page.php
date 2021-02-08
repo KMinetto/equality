@@ -2,10 +2,11 @@
 get_header();
 //?>
 	<main>
+        <h1 class="text-center">Les inégalités des femmes dans le monde du travail</h1>
     <?php
 		if (have_posts()) :
 			while (have_posts()) : the_post(); ?>
-                <h1 class="text-center"><?php the_title(); ?></h1>
+                <h2 class="text-center"><?php the_title(); ?></h2>
             <div class="intro">
                 <?php the_content() ?>
             </div>
@@ -60,6 +61,12 @@ get_header();
 		?>
 
         <h2 class="text-center">L'accès des femmes aux postes à résponsabilités</h2>
+        <h4 class="mt4 text-center">
+            Près de 57% des personnes interrogées indiquent qu’il est plus facile d’attirer et de retenir des personnes
+            de talent. Plus de 54% disent avoir constaté des progrès en termes de créativité, d’innovation et d’ouverture,
+            autant déclarent que le fait de privilégier effectivement la parité a renforcé l’image de marque de leur entreprise,
+            et près de 37% estiment que cela leur permet de mieux évaluer l’opinion des clients.
+        </h4>
         <div class="row mt-3 d-flex justify-content-between">
 			<?php if ($myQuery->have_posts()) : ?>
 				<?php while ($myQuery->have_posts()) : $myQuery->the_post(); ?>
