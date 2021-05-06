@@ -17,17 +17,17 @@
             </div>
         </div>
     </div>
-    <div class="row mb-2">
+    <div class="d-flex justify-content-between row mb-2">
 		<?php if (have_posts()) : ?>
 			<?php while (have_posts()) : the_post(); ?>
-                <div class="col-12 col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden d-flex flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="card-archive col-12 col-md-5 mt-5">
+                    <div class="row g-0 border rounded overflow-hidden d-flex flex-md-row mb-4 shadow-sm h-100 h-md-250 position-relative">
                         <div class="col d-flex flex-column justify-content-between position-relative text-black">
-                            <h4 class="mb-0"><?php the_title(); ?></h4>
-                            <a class="stretched-link" href="<?php the_permalink(); ?>">Voir l'article</a>
+                            <h4 class="mb-0 title-archive"><?php the_title(); ?></h4>
+                            <a class="stretched-link mt-5 btn btn-block btn-primary" href="<?php the_permalink(); ?>">Voir l'article</a>
                         </div>
                         <div class="col-auto d-none d-lg-block thumbnail-cards">
-                            <img height="250" src="<?php the_post_thumbnail_url(); ?>" alt="Image liée à l'article">
+                            <img id="accessThumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="Image liée à l'article">
                         </div>
                     </div>
                 </div>

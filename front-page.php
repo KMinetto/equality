@@ -1,6 +1,6 @@
 <?php
 get_header();
-//?>
+?>
 	<main>
         <h1 class="text-center">Les inégalités des femmes dans le monde du travail</h1>
     <?php
@@ -46,8 +46,7 @@ get_header();
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
         </div>
-        <a href="ecarts">Découvrir les articles...</a>
-
+       <a href="ecarts" class="btn btn-block btn-primary mt-4">Découvrir les articles...</a>
         <div class="col-12 my-5">
             <img src="<?= bloginfo( 'template_url' ) ?>/assets/img/access.png" alt="Image parlant du plafond de verre" class="thumb-single">
         </div>
@@ -82,7 +81,8 @@ get_header();
 			<?php endif; ?>
 			<?php wp_reset_postdata(); ?>
         </div>
-        <a class="text-end" href="access">Découvrir les articles...</a>
+        <a id="accessPost" class="text-end my-4 btn btn-block" href="access">Découvrir les articles...</a>
     </main>
 <?php
 get_footer();
+?>
